@@ -8,3 +8,5 @@
 4. [Ubuntu Tips](./Ubuntu_Tips.md)
 
 5. [Github Tips](./Github_Tips.md)
+
+6. [SSH Quick Reference](./ssh_Tips.md)
