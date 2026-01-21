@@ -55,3 +55,30 @@
         ```bash
         ssh-keygen -R 192.168.1.50
         ```
+
+10. Forwarding agent from PC to the remote machine -
+    - Allow agent forwarding on the host machine -
+        ```bash
+        sudo nano /etc/ssh/sshd_config
+        ```
+    - Uncomment following line -
+        ```bash
+        AllowAgentForwarding yes
+        ```
+    - Restart the ssh service -
+        ```bash
+        sudo systemctl restart ssh
+        ```
+    - Verify forwarding is actually working on the remote machine, run following command on your pc
+        ```bash
+        ssh -A pi@192.168.1.50
+        ```
+    - On the host machine run -
+        ```bash
+        echo $SSH_AUTH_SOCK
+        ```
+    - Now check whether the remote machine can “see” your forwarded keys:
+        ```bash
+        ssh-add -L
+        ```
+        You should see your public key(s) listed.
